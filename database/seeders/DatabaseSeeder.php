@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         // Jalankan seeder untuk role dan user admin
         $this->call([
             AdminUserSeeder::class,
-            PembeliUserSeeder::class,
+            CustomerUserSeeder::class,
         ]);
     }
 }

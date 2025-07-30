@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
 {
@@ -24,12 +25,16 @@ class AuthController extends Controller
             'password' => 'required|confirmed|min:6',
         ]);
 
-        User::create([
+        $user = User::create([
             'name'     => $request->name,
             'email'    => $request->email,
             'password' => Hash::make($request->password),
-            'role'     => 'customer', // default role
+            'role'     => 'customer', // tetap isi kolom role jika kamu pakai
         ]);
+
+        // Pastikan role 'customer' sudah ada di tabel roles
+        $role = Role::firstOrCreate(['name' => 'customer']);
+        $user->assignRole($role);
 
         return redirect()->route('login')->with('success', 'Akun berhasil dibuat. Silakan login.');
     }
@@ -59,13 +64,13 @@ class AuthController extends Controller
         ])->onlyInput('email');
     }
 
-    // Proses logout (dipanggil dari route POST /logout)
- public function logout(Request $request)
-{
-    Auth::logout();
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
+    // Proses logout
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-    return redirect('/login')->with('success', 'Anda telah logout.');
-}
+        return redirect('/login')->with('success', 'Anda telah logout.');
+    }
 }

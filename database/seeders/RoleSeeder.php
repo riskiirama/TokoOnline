@@ -12,7 +12,7 @@ class RoleSeeder extends Seeder
     {
         // Buat role jika belum ada
         $adminRole = Role::firstOrCreate(['name' => 'admin']);
-        $pembeliRole = Role::firstOrCreate(['name' => 'pembeli']);
+        $customerRole = Role::firstOrCreate(['name' => 'customer']);
 
         // Beri role ke user pertama (ID = 1), misalnya sebagai admin
         $user = User::find(1);
