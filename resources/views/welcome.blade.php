@@ -11,7 +11,8 @@
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f8fafc, #dbeafe);
+            background: url({{ asset('images/dash.png') }}) no-repeat center center fixed;
+            background-size: cover;
             color: #1e293b;
             min-height: 100vh;
             display: flex;
@@ -24,6 +25,10 @@
             max-width: 900px;
             width: 100%;
             text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(5px);
         }
         h1 {
             font-size: 3rem;
