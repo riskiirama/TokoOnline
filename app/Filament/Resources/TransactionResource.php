@@ -39,7 +39,7 @@ class TransactionResource extends Resource
                     ->required(),
 
                 Forms\Components\Textarea::make('address')
-                    ->label('Alamat')
+                    ->label('Alamat Lengkap')
                     ->required(),
 
                 Forms\Components\Select::make('status')
@@ -58,9 +58,9 @@ class TransactionResource extends Resource
                     ->numeric()
                     ->required()
                     ->disabled(),
-                Forms\Components\Textarea::make('alamat_pengiriman')
-                    ->label('No Rumah')
-                    ->required(),
+                // Forms\Components\Textarea::make('alamat_pengiriman')
+                //     ->label('No Rumah')
+                //     ->required(),
 
                 Forms\Components\FileUpload::make('bukti_dp')
                     ->label('Bukti Bayar DP')

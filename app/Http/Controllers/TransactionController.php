@@ -23,7 +23,7 @@ class TransactionController extends Controller
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
             'address' => 'required|string',
-            'alamat_pengiriman' => 'required|string',
+            // 'alamat_pengiriman' => 'required|string',
             'ukuran' => 'required|in:S,M,L,XL',
             'bukti_dp' => 'required|image|max:2048',
         ]);
@@ -48,7 +48,7 @@ class TransactionController extends Controller
                 'address' => $request->address,
                 'status' => 'pending',
                 'total' => $total,
-                'alamat_pengiriman' => $request->alamat_pengiriman,
+                // 'alamat_pengiriman' => $request->alamat_pengiriman,
                 'bukti_dp' => $buktiPath,
                 'total_dp' => $total_dp,
             ]);

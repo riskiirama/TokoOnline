@@ -108,11 +108,11 @@
     <label for="phone">No HP:</label>
     <input type="tel" name="phone" id="phone" required value="{{ old('phone') }}">
 
-    <label for="address">Alamat:</label>
+    <label for="address">Alamat Lengkap</label>
     <textarea name="address" id="address" required>{{ old('address') }}</textarea>
 
-    <label for="alamat_pengiriman">No Rumah:</label>
-    <textarea name="alamat_pengiriman" id="alamat_pengiriman" required>{{ old('alamat_pengiriman') }}</textarea>
+    {{-- <label for="alamat_pengiriman">No Rumah:</label>
+    <textarea name="alamat_pengiriman" id="alamat_pengiriman" required>{{ old('alamat_pengiriman') }}</textarea> --}}
 
     <label for="ukuran">Ukuran Baju:</label>
     <select name="ukuran" id="ukuran" required>

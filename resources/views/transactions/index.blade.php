@@ -2,12 +2,28 @@
 
 @section('content')
 <style>
+    /* Background full halaman */
+    body {
+        background-image: url("{{ asset('images/dash.png') }}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
     .container {
         max-width: 900px;
         margin: 40px auto;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: #1e293b;
+        background: rgba(255, 255, 255, 0.85); /* lapisan putih transparan */
+        backdrop-filter: blur(8px); /* efek blur */
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
+
     .header-section {
         display: flex;
         justify-content: space-between;
@@ -140,7 +156,7 @@
                 <span class="status {{ $transaksi->status }}">{{ ucfirst($transaksi->status) }}</span>
             </h5>
             <p><strong>Rekening Dana untuk pembayaran:</strong><br>
-                <span style="font-weight: 700; color: #3b82f6;">0812xxxxxxx (Nama Pemilik)</span>
+                <span style="font-weight: 700; color: #3b82f6;">085137961190 (Fauziah)</span>
             </p>
 
             <p><strong>Total:</strong> Rp{{ number_format($transaksi->total, 0, ',', '.') }}</p>

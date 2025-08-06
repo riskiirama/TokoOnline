@@ -4,11 +4,20 @@
 
 @section('content')
 <style>
+    /* Background full halaman */
+    body {
+        background-image: url("{{ asset('images/dash.png') }}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
     .home-container {
         width: 100%;
         margin: 0;
         padding: 40px 0;
-        background-color: #f8fafc;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: #1e293b;
         line-height: 1.6;
@@ -17,7 +26,8 @@
     .home-inner {
         max-width: 1200px;
         margin: 0 auto;
-        background: white;
+        background: rgba(255, 255, 255, 0.85); /* lapisan transparan */
+        backdrop-filter: blur(8px); /* efek blur belakang */
         padding: 40px;
         border-radius: 16px;
         box-shadow: 0 8px 24px rgb(0 0 0 / 0.1);
@@ -121,13 +131,13 @@
 </style>
 
 <div class="home-container">
-    
     <div class="home-inner">
         <div class="features">
-       <div class="#"> <img src="{{ asset('images/butik.png') }}" alt="Gambar Butik" class="home-image"></div>
-        <div class="#"><img src="{{ asset('images/butik2.png') }}" alt="Gambar Butik" class="home-image"></div>
-        <div class="#"><img src="{{ asset('images/butik1.png') }}" alt="Gambar Butik" class="home-image"></div>
-</div>
+            <div><img src="{{ asset('images/butik.png') }}" alt="Gambar Butik" class="home-image"></div>
+            <div><img src="{{ asset('images/butik2.png') }}" alt="Gambar Butik" class="home-image"></div>
+            <div><img src="{{ asset('images/butik1.png') }}" alt="Gambar Butik" class="home-image"></div>
+        </div>
+
         <h1>Selamat datang, {{ Auth::user()->name }}!</h1>
         <p class="intro">Silakan pilih produk yang ingin dibeli. Berikut beberapa keunggulan Butik Fauziah yang membuat kami pilihan tepat untuk pakaian berkualitas Anda.</p>
         <a href="{{ route('products.index') }}" class="btn-primary">Lihat Produk</a>

@@ -4,12 +4,29 @@
 
 @section('content')
 <style>
+    /* Background full halaman */
+    body {
+        background-image: url("{{ asset('images/dash.png') }}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    /* Overlay konten agar teks tetap terbaca */
     .products-container {
         max-width: 900px;
         margin: 40px auto;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: #1e293b;
+        background: rgba(255, 255, 255, 0.85); /* lapisan transparan */
+        backdrop-filter: blur(8px); /* efek blur belakang */
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
+    
     h2 {
         text-align: center;
         color: #2563eb;
@@ -17,12 +34,16 @@
         margin-bottom: 30px;
         font-size: 2.5rem;
     }
+
+    /* Grid produk */
     .products-grid {
         display: flex;
         flex-wrap: wrap;
         gap: 25px;
         justify-content: center;
     }
+
+    /* Kartu produk */
     .product-card {
         background: white;
         border-radius: 16px;
@@ -40,6 +61,7 @@
         transform: translateY(-10px);
         box-shadow: 0 16px 40px rgb(37 99 235 / 0.3);
     }
+
     .product-img {
         width: 100%;
         height: 250px;
@@ -47,6 +69,7 @@
         border-radius: 12px;
         margin-bottom: 15px;
     }
+
     .product-card h3 {
         color: #1e40af;
         font-weight: 700;
@@ -54,12 +77,14 @@
         font-size: 1.4rem;
         text-align: center;
     }
+
     .product-card p.price {
         font-weight: 700;
         color: #2563eb;
         margin: 0 0 12px 0;
         font-size: 1.1rem;
     }
+
     .product-card p.description {
         flex-grow: 1;
         color: #475569;
@@ -67,6 +92,8 @@
         margin-bottom: 20px;
         text-align: center;
     }
+
+    /* Tombol beli */
     .btn-buy {
         display: inline-block;
         background-color: #3b82f6;
@@ -84,6 +111,8 @@
     .btn-buy:hover {
         background-color: #2563eb;
     }
+
+    /* Link kembali */
     .back-link {
         display: block;
         max-width: 900px;
